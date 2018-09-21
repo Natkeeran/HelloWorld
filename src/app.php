@@ -1,14 +1,9 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-
 require_once __DIR__.'/../vendor/autoload.php';
 
-//use Islandora\Crayfish\Commons\Provider\IslandoraServiceProvider;
 use Islandora\Crayfish\Commons\Provider\YamlConfigServiceProvider;
 use Islandora\Helloworld\Controller\HelloworldController;
 use Silex\Application;
-
 use Symfony\Component\HttpFoundation\Request;
 
 $app['debug'] = true;
@@ -31,10 +26,7 @@ $app['helloworld.controller'] = function ($app) {
 $app->get('/sayYo', "helloworld.controller:sayYo");
 
 $app->get('/sayHello', function () {
-  $bb = new HelloworldController();
-  $mm = $bb->sayYo();
-
-  return "Hello World" . $mm;
+  return "Hello World";
 });
 
 return $app;

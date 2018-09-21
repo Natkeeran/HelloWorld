@@ -1,10 +1,9 @@
 <?php
-
 namespace Islandora\Helloworld\Controller;
 
 /**
- * Class HelloWorldController
- * @package Islandora\HelloWorld\Controller
+ * Class HelloworldController
+ * @package Islandora\Helloworld\Controller
  * @param $log
  */
 
@@ -24,7 +23,7 @@ class HelloworldController
     }
 
     public function sayYo() {
-      return "5555555555555555555555";
+      return "Yo Yo";
     }
 
 }

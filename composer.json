@@ -20,7 +20,6 @@
         }
     ],
     "autoload": {
-        "files":["src/Controller/HelloworldController2.php"],
         "psr-4": {
             "Islandora\\Helloworld\\": "src/"
         }
