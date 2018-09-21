@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__.'/../vendor/autoload.php';
 
+use Islandora\Crayfish\Commons\Provider\IslandoraServiceProvider;
 use Islandora\Crayfish\Commons\Provider\YamlConfigServiceProvider;
 use Islandora\Helloworld\Controller\HelloworldController;
 use Silex\Application;
@@ -12,13 +13,9 @@ $app = new Application();
 
 $app->register(new YamlConfigServiceProvider(__DIR__ . '/../cfg/config.yaml'));
 
-// Register the Log service
-$app->register(new Silex\Provider\MonologServiceProvider(), array(
-  'monolog.logfile' => '/var/log/islandora/test2.log',
-));
+// Use Authorization: Bearer islandora header in your requests
+$app->register(new IslandoraServiceProvider());
 
-// Register the Service Controller - https://silex.symfony.com/doc/2.0/providers/service_controller.html
-$app->register(new Silex\Provider\ServiceControllerServiceProvider());
 $app['helloworld.controller'] = function ($app) {
     return new HelloworldController();
 };
